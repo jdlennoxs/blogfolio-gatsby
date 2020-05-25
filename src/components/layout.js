@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import {Global, css} from "@emotion/core"
 
 import { rhythm, scale } from "../utils/typography"
 
@@ -31,7 +32,6 @@ const Layout = ({ location, title, children }) => {
     header = (
       <h3
         style={{
-          fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
         }}
       >
@@ -57,7 +57,13 @@ const Layout = ({ location, title, children }) => {
       }}
     >
       <header>{header}</header>
-      <main>{children}</main>
+      <main>      
+        <Global styles={css`
+        html {
+          background-color: var(--background)
+        }
+        `}/>
+        {children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
